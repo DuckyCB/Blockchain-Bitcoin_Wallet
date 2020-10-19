@@ -59,7 +59,6 @@ public class SendController implements Initializable {
              * <p> Esto no funciona, no se como hacer que mande guita </p>
              */
 
-            //try {
             Address target = Address.fromString(WalletApplication.getParams(), (String) fieldAddressSend.getCharacters());
             Transaction tx = new Transaction(WalletApplication.getParams());
             Coin coin = Coin.parseCoin(labelBTCValue.getText());
@@ -72,35 +71,37 @@ public class SendController implements Initializable {
             } catch (InsufficientMoneyException e) {
                 System.out.println("Insufficent Money Exception");
             }
-            /*SendRequest req;
-            if (coin.equals(WalletApplication.getWallet().getBalance()))
-                req = SendRequest.emptyWallet(target);
-            else
-                req = SendRequest.to(target, coin);
-            req.aesKey = aesKey;
-            // Don't make the user wait for confirmations for now, as the intention is they're sending it
-            // their own money!
-            req.allowUnconfirmed();
-            sendResult = WalletApplication.getWallet().sendCoins(req);
-            Futures.addCallback(sendResult.broadcastComplete, new FutureCallback<>() {
-                @Override
-                public void onSuccess(@Nullable Transaction result) {
-                    checkGuiThread();
-                    overlayUI.done();
-                }
+            /*try {
+                SendRequest req;
+                if (coin.equals(WalletApplication.getWallet().getBalance()))
+                    req = SendRequest.emptyWallet(target);
+                else
+                    req = SendRequest.to(target, coin);
+                req.aesKey = aesKey;
+                // Don't make the user wait for confirmations for now, as the intention is they're sending it
+                // their own money!
+                // Esta funcion no existe en esta version de la lib
+                req.allowUnconfirmed();
+                sendResult = WalletApplication.getWallet().sendCoins(req);
+                Futures.addCallback(sendResult.broadcastComplete, new FutureCallback<>() {
+                    @Override
+                    public void onSuccess(@Nullable Transaction result) {
+                        checkGuiThread();
+                        overlayUI.done();
+                    }
 
-                @Override
-                public void onFailure(Throwable t) {
-                    // We died trying to empty the wallet.
-                    crashAlert(t);
-                }
-            }, MoreExecutors.directExecutor());
-            sendResult.tx.getConfidence().addEventListener((tx, reason) -> {
-                if (reason == TransactionConfidence.Listener.ChangeReason.SEEN_PEERS)
-                    updateTitleForBroadcast();
-            });*/
+                    @Override
+                    public void onFailure(Throwable t) {
+                        // We died trying to empty the wallet.
+                        crashAlert(t);
+                    }
+                }, MoreExecutors.directExecutor());
+                sendResult.tx.getConfidence().addEventListener((tx, reason) -> {
+                    if (reason == TransactionConfidence.Listener.ChangeReason.SEEN_PEERS)
+                        updateTitleForBroadcast();
+                });
 
-            //}
+            }*/
 
         }
 
