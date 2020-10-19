@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #404040;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ducky.btc.scenes.ReceiveController">
+   <children>
+      <Label layoutX="214.0" layoutY="55.0" text="Recibir BTC" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold" size="50.0" />
+         </font>
+      </Label>
+      <Button fx:id="buttonBack" layoutX="30.0" layoutY="30.0" mnemonicParsing="false" onAction="#pressedBack" style="-fx-background-color: #cdcdcd;" text="Atrás" />
+      <StackPane fx:id="paneKey" layoutX="50.0" layoutY="320.0" onMouseClicked="#pressedKey" prefHeight="40.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="fieldBTC" text="Label" textFill="#c9c9c9">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

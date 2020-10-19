@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #404040;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.ducky.btc.scenes.RestoreWalletController">
+   <children>
+      <Label layoutX="157.0" layoutY="82.0" text="Restaurar Wallet" textFill="WHITE">
+         <font>
+            <Font name="Cambria Bold" size="50.0" />
+         </font>
+      </Label>
+      <Button fx:id="buttonRestore" layoutX="301.0" layoutY="371.0" mnemonicParsing="false" onAction="#pressedRestore" style="-fx-background-color: #cdcdcd;" text="Restaurar">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <TextField fx:id="fieldMnemonic" layoutX="50.0" layoutY="205.0" prefHeight="25.0" prefWidth="600.0" promptText="Seed (mnemonic)" />
+      <TextField fx:id="fieldDate" layoutX="50.0" layoutY="268.0" prefHeight="25.0" prefWidth="600.0" promptText="Seed (Fecha de creación)" />
+   </children>
+</AnchorPane>
