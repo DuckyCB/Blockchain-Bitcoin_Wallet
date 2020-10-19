@@ -11,7 +11,9 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import net.rgielen.fxweaver.core.FxmlView;
+import org.bitcoinj.core.Address;
 import org.bitcoinj.core.Coin;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
@@ -20,6 +22,9 @@ import java.util.ResourceBundle;
 @Component
 @FxmlView("/edu/ducky/btc/scenes/mainWallet.fxml")
 public class MainWalletController implements Initializable {
+
+    @Autowired
+    WalletApplication walletApplication;
 
     @FXML
     private Label labelBTCBalance;
@@ -35,12 +40,12 @@ public class MainWalletController implements Initializable {
 
     @FXML
     void pressedReceive(ActionEvent event) {
-
+        walletApplication.sceneReceive();
     }
 
     @FXML
     void pressedSend(ActionEvent event) {
-
+        walletApplication.sceneSend();
     }
 
 
@@ -49,9 +54,14 @@ public class MainWalletController implements Initializable {
 
         labelBTCBalance.setText(String.valueOf(WalletApplication.getWallet().getBalance().getValue()));
 
+        /* for (Transaction transaction: transactionsList) {
+            paneTransaction(transaction.getDate(), transaction.getValue(), transaction.getAddress());
+        } */
+
     }
 
-    private Pane paneTransaction(){
+    /** <p> Crea un panel para mostrar la informacion de una transaccion </p>*/
+    private Pane paneTransaction(Long creationTime, Double btcValue, Address address){
 
         Pane pane = new Pane();
         pane.setPrefSize(500, 50);
@@ -62,7 +72,7 @@ public class MainWalletController implements Initializable {
         dateLabel.setLayoutY(6);
         pane.getChildren().add(dateLabel);
 
-        Label date = new Label("Fecha");
+        Label date = new Label(Long.toString(creationTime));
         date.setLayoutX(54);
         date.setLayoutY(6);
         pane.getChildren().add(date);
@@ -72,7 +82,7 @@ public class MainWalletController implements Initializable {
         ammountLabel.setLayoutY(6);
         pane.getChildren().add(ammountLabel);
 
-        Label ammount = new Label("Cantidad");
+        Label ammount = new Label(Double.toString(btcValue));
         ammount.setLayoutX(250);
         ammount.setLayoutY(6);
         pane.getChildren().add(ammount);
@@ -82,10 +92,10 @@ public class MainWalletController implements Initializable {
         addressLabel.setLayoutY(28);
         pane.getChildren().add(addressLabel);
 
-        Label address = new Label("Address");
-        address.setLayoutX(68);
-        address.setLayoutY(28);
-        pane.getChildren().add(address);
+        Label addressA = new Label(address.toString());
+        addressA.setLayoutX(68);
+        addressA.setLayoutY(28);
+        pane.getChildren().add(addressA);
 
         return pane;
 

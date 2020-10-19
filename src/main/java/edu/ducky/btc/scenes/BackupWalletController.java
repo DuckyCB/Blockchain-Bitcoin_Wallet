@@ -79,9 +79,8 @@ public class BackupWalletController implements Initializable {
 
     @FXML
     void pressedRestore(ActionEvent event) {
-
+        walletApplication.sceneRestoreWallet();
     }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

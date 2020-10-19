@@ -26,6 +26,7 @@ public class RestoreWalletController {
     @FXML
     private TextField fieldDate;
 
+    /** <p> Genera una wallet a partir del mnemonic y fecha guardados de la anterior </p>*/
     @FXML
     void pressedRestore(ActionEvent event) throws UnreadableWalletException {
 

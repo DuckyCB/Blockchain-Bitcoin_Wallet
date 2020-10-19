@@ -65,7 +65,7 @@ public class SendController implements Initializable {
                 WalletApplication.getWallet().commitTx(request.tx);
                 WalletApplication.getPeerGroup().broadcastTransaction(request.tx);
             } catch (InsufficientMoneyException e) {
-
+                System.out.println("Insufficent Money Exception");
             }
 
         }

@@ -105,6 +105,12 @@ public class WalletApplication extends Application {
 
     }
 
+    /**
+     * <p> Crea una wallet desde el comienzo </p>
+     * <p> A la vez crea una BlockChain tomando los parametros de la red asociada, y le pasa el genesis block. </p>
+     * <p> El PeerGroup conecta la blockchain a la red. </p>
+     * @throws BlockStoreException
+     */
     public void createWallet() throws BlockStoreException {
 
         wallet = Wallet.createDeterministic(params, Script.ScriptType.P2PKH);
@@ -115,6 +121,12 @@ public class WalletApplication extends Application {
 
     }
 
+    /**
+     *  <p> Restaura la wallet con las seed ingresadas </p>
+     * @param seedCode Seed asociado al mnemonic
+     * @param creationTime Seed asociado a la fecha de creacion del mnemonic
+     * @throws UnreadableWalletException
+     */
     public void restoreWallet(String seedCode, String creationTime) throws UnreadableWalletException {
 
         DeterministicSeed seed = new DeterministicSeed(seedCode, null, "", Long.parseLong(creationTime));
