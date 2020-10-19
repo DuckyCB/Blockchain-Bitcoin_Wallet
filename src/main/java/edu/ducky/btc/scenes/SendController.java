@@ -55,6 +55,9 @@ public class SendController implements Initializable {
 
         if (fieldBTCSend != null & fieldAddressSend != null) {
 
+            /**
+             * <p> Esto no funciona, no se como hacer que mande guita </p>
+             */
             Address target = Address.fromString(WalletApplication.getParams(), (String) fieldAddressSend.getCharacters());
             Transaction tx = new Transaction(WalletApplication.getParams());
             Coin coin = Coin.parseCoin(labelBTCValue.getText());

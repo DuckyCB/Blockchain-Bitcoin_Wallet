@@ -26,6 +26,7 @@ public class WalletApplication extends Application {
 
     private static Stage primaryStage;
     private static Wallet wallet;
+    /** <p> La linea maldita que siempre crashea </p>*/
     private static NetworkParameters params = TestNet3Params.get();
     private static PeerGroup peerGroup;
 

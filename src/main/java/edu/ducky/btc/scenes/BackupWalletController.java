@@ -41,12 +41,13 @@ public class BackupWalletController implements Initializable {
     @FXML
     private Button buttonRestore;
 
-
+    /** <p> Vuelve al menu principal </p> */
     @FXML
     void pressedBack(ActionEvent event) {
         walletApplication.sceneMainWallet();
     }
 
+    /** <p> Copia la key al portapapeles </p> */
     @FXML
     void pressedKey(MouseEvent event) {
 
@@ -57,6 +58,7 @@ public class BackupWalletController implements Initializable {
 
     }
 
+    /** <p> Copia la fecha al portapapeles </p> */
     @FXML
     void pressedDate(MouseEvent event) {
 
@@ -67,6 +69,7 @@ public class BackupWalletController implements Initializable {
 
     }
 
+    /** <p> Copia el mnemonic al portapapeles </p> */
     @FXML
     void pressedMnemonic(MouseEvent event) {
 

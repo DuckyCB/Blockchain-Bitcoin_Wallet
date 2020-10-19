@@ -23,6 +23,7 @@ public class BeginWalletController {
     @FXML
     private Button buttonRestore;
 
+    /** <p> Crea una nueva wallet desde cero. </p> */
     @FXML
     void pressedNew(ActionEvent event) {
         try {
@@ -32,6 +33,7 @@ public class BeginWalletController {
         }
     }
 
+    /** <p> Restaura una wallet. </p> */
     @FXML
     void pressedRestore(ActionEvent event) {
         walletApplication.sceneRestoreWallet();

@@ -49,6 +49,9 @@ public class MainWalletController implements Initializable {
     }
 
 
+    /** <p> Inicializa la ventana cargando las transacciones.
+     * De momento no funciona, no se como recuperar la lista de tx.
+     * </p>*/
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
